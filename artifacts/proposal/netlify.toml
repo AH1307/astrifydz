@@ -1,0 +1,13 @@
+[build]
+  base = "artifacts/proposal"
+  command = "cd ../.. && pnpm install --frozen-lockfile && BASE_PATH=/ PORT=3000 pnpm --filter @workspace/proposal run build"
+  publish = "dist/public"
+
+[build.environment]
+  NODE_VERSION = "24"
+  PNPM_VERSION = "10"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
